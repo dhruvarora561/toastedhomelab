@@ -3,22 +3,22 @@ agent any
 stages {
 
     stage ("init") {
-        step {
+        steps {
         echo "initializing pipeline"
         }
     }
     stage ('build') {
-        step {
+        steps {
         echo "building the pipeline"
         }
     }
     stage ('test') {
-        step {
+        steps {
         echo "testing it"
         }
     }
     stage ('deployment') {
-        step {
+        steps {
         echo "deployment completed"
         }
     }
