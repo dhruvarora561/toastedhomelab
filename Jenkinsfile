@@ -12,11 +12,12 @@ stages {
         echo "building the pipeline"
         }
     }
-    stage ('test') {
-        steps {
-        echo "testing it"
-        }
+    stage('SonarQube Analysis') {
+    def scannerHome = tool 'SonarScanner';
+    withSonarQubeEnv() {
+      sh "${scannerHome}/bin/sonar-scanner"
     }
+  }
     stage ('deployment') {
         steps {
         echo "deployment completed"
@@ -24,3 +25,4 @@ stages {
     }
 }
 }
+
